@@ -22,9 +22,9 @@ public class UserService {
         User user = User.builder()
                 .username(request.getUsername())
                 .email(request.getEmail())
-                .password(request.getPassword()) // encode later
+                .password(request.getPassword()) 
                 .role(request.getRole())
-                .active(true)
+                .active(request.getActive())
                 .createdAt(LocalDateTime.now())
                 .build();
 
@@ -51,7 +51,7 @@ public class UserService {
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
         user.setRole(request.getRole());
-
+        user.setActive(request.getActive());
         return map(repository.save(user));
     }
 
